@@ -1,14 +1,59 @@
-<!DOCTYPE html>
+{% load static %}
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoga App</title>
-</head>
-<body>
-    {% block content %}
-    
+    <head>
+        {% block meta %}
+        {% endblock %}
+
+        <!-- Required meta tags -->
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block extrameta %}
+        {% endblock %}
+
+        {% block corecss %}
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="{% static 'css/all.css' %}">
+            <!-- Bootstrap -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+            <!-- Custom -->
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <!-- Lightbox -->
+            <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+
+        {% endblock %}
+
+        <title>Yoga App
+        {% block title %}{% endblock title %}
+        </title>
+    </head>
+
+    <body>
+    {# Header #}
+        {% block header %}
+        {% include 'components/navbar.html' %}
+        {% endblock %}
+
+    {# Main content #}
+        {% block content %}
+        {% endblock %}
+
+    {# Footer #}
+        {% block footer %}
+        {% include 'components/footer.html' %}
+        {% endblock %}
+
+    {% block corejs %}
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/lightbox.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
     {% endblock %}
-</body>
+
+    {% block extrajs %}
+    {% endblock %}
+    </body>
 </html>
