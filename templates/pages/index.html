@@ -1,5 +1,97 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>HOME PAGE</h1>
+  <!-- Showcase -->
+  <section id="showcase">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4">Online Yoga Courses</h1>
+        <p class="lead">Expand your knowledge and deepen your practice wherever and whenever suits you</p>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Online Yoga Courses</h3>
+      <div class="row">
+
+        <!-- Course 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Online Yoga Teacher Training Taster Course</h4>
+                <div class="row py-2 text-secondary">
+                    <div class="col-6"><i class="fas fa-euro-sign text-secondary"></i> Free</div>
+                    <div class="col-6"><i class="fas fa-book text-secondary"></i> 48 Lessons</div>
+                </div>
+                <hr>
+                <a href="course.html" class="btn btn-primary btn-block">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">200 Hours Online Yoga Teacher Training</h4>
+                <div class="row py-2 text-secondary">
+                    <div class="col-6"><i class="fas fa-euro-sign text-secondary"></i> 975,00</div>
+                    <div class="col-6"><i class="fas fa-book text-secondary"></i> 190 Lessons</div>
+                </div>
+                <hr>
+                <a href="course.html" class="btn btn-primary btn-block">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+         <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Yoga Anatomy Course</h4>
+                <div class="row py-2 text-secondary">
+                    <div class="col-6"><i class="fas fa-euro-sign text-secondary"></i> 99,00</div>
+                    <div class="col-6"><i class="fas fa-book text-secondary"></i> 52 Lessons</div>
+                </div>
+                <hr>
+                <a href="course.html" class="btn btn-primary btn-block">Enroll Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-book-reader fa-4x mr-4"></i>
+          <h3>Learn on your terms</h3>
+          <p>Our online yoga courses bring all of our expert knowledge of yoga to your fingertips. Study and practice traditional yoga from wherever you like at a pace that suits you.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-spa fa-4x mr-4"></i>
+          <h3>Our expert teachers</h3>
+          <p>We've been training yoga teachers for over 10 years and our teaching team is the best there is. Our online courses bring our world-renowned, specialist teachers to you.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-graduation-cap fa-4x mr-4"></i>
+          <h3>Elevate your yoga</h3>
+          <p>Whether you're a yoga teacher or practitioner, our courses will elevate your knowledge and practice of yoga. Each course is made of easily digestible multimedia lessons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
