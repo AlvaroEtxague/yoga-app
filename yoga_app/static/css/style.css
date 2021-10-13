@@ -52,7 +52,8 @@ img {
   position: relative;
   overflow: hidden;
   min-height: 200px; }
-  #showcase-inner::before {
+
+#showcase-inner::before {
     content: '';
     position: absolute;
     top: 0;
@@ -68,6 +69,10 @@ img {
 
 .listing-preview a {
   position: relative; }
+
+#message.container{
+  width: 100%;
+}
 
 @media (max-width: 991px) {
   #showcase {
