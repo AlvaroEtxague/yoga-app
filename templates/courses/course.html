@@ -32,6 +32,9 @@
         </div>
     </section>
 
+    <!-- Alerts --> 
+    {% include 'components/messages.html' %}
+
     <!-- Listing -->
     <section id="course" class="py-4">
         <div class="container">
@@ -104,5 +107,62 @@
             </div>
         </div>
     </section>
+
+    <!-- Inquiry Modal -->
+    <div class="modal fade" id="inquiryModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                        {% if user.is_authenticated %}
+                            <input type="hidden" name="user_id" value="{{ user.id }}">
+                        {% else %}
+                            <input type="hidden" name="user_id" value="0">
+                        {% endif %}
+                        <input type="hidden" name="teacher_email" value="{{ course.teacher.email }}">
+                        <input type="hidden" name="course_id" value="{{ course.id }}">
+
+                        <div class="form-group">
+                            <label for="course_name" class="col-form-label">Course:</label>
+                            <input type="text" name="course" class="form-control" value="{{ course.title }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" name="name" class="form-control" 
+                            {% if user.is_authenticated %}
+                                value="{{ user.first_name }} {{ user.last_name }}"
+                            {% endif %}
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" 
+                            {% if user.is_authenticated %}
+                                value="{{ user.email }}"
+                            {% endif %}
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="col-form-label">Message:</label>
+                            <textarea name="message" class="form-control"></textarea>
+                        </div>
+                        <hr>
+                        <input type="submit" value="Send" class="btn btn-block btn-secondary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
