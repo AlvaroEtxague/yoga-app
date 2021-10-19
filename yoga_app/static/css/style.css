@@ -20,11 +20,8 @@ img {
   min-height: 500px;
   color: #fff;
   padding-top: 6rem; }
-  #showcase .home-search {
-    min-height: 400px;
-    position: relative;
-    border-radius: 5px; }
-  #showcase .overlay {
+  
+#showcase .overlay {
     content: '';
     position: absolute;
     top: 0;
