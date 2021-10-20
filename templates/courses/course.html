@@ -4,12 +4,11 @@
 
 {% block content %}
 
-    <section id="showcase-inner" class="py-5 text-white">
+    <section id="showcase-inner" class="py-3 text-white">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
-                    <h1 class="display-4">{{course.title}}</h1>
-                    <p class="lead">
+                    <h1 class="display-5">{{course.title}}</h1>
                 </div>
             </div>
         </div>
@@ -36,7 +35,7 @@
     {% include 'components/messages.html' %}
 
     <!-- Listing -->
-    <section id="course" class="py-4">
+    <section id="course" class="py-2">
         <div class="container">
             <a href="{% url 'courses' %}" class="btn btn-light mb-4">Back To Courses</a>
             <div class="row">
