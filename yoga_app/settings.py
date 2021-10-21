@@ -15,7 +15,7 @@ SECRET_KEY = "<<ADD_SECRET_KEY_HERE>>"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]
 
 
 # Application definition
