@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
@@ -16,6 +17,7 @@ SECRET_KEY = "<<ADD_SECRET_KEY_HERE>>"
 DEBUG = True
 
 ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -71,18 +73,17 @@ WSGI_APPLICATION = "yoga_app.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "yogaapp",
+    #     "USER": "postgres",
+    #     "PASSWORD": "password1",
+    #     "HOST": "localhost",
+    #     "PORT": "9001",
     # }
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "yogaapp",
-        "USER": "postgres",
-        "PASSWORD": "password1",
-        "HOST": "localhost",
-        "PORT": "9001",
-    }
+    "default": dj_database_url.parse(
+        "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb8124a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
+    )
 }
 
 
