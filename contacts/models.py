@@ -3,6 +3,7 @@ from datetime import datetime
 
 # Create your models here.
 
+
 class Contact(models.Model):
     course = models.CharField(max_length=255)
     course_id = models.IntegerField()
