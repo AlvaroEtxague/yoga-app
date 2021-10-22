@@ -152,3 +152,13 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get("EMAIL_USER1", "")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS1", "")
 EMAIL_USE_TLS = True
+
+
+# Stripe Credentials
+STRIPE_PUBLISHABLE_KEY = os.getenv(
+    'STRIPE_PUBLISHABLE_KEY', '')
+STRIPE_SECRET_KEY = os.getenv(
+    'STRIPE_SECRET_KEY', '')
+
+STRIPE_WEBHOOK_SECRET = os.getenv(
+    'STRIPE_WEBHOOK_SECRET', '')

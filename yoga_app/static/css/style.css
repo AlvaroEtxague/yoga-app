@@ -30,7 +30,7 @@ img {
     background: rgba(51, 51, 51, 0.8); }
 
 #services {
-  min-height: 300px;
+  min-height: 200px;
   position: relative;
   overflow: hidden; }
 
@@ -67,6 +67,10 @@ img {
 
 #message.container{
   width: 100%;
+}
+
+footer{
+  margin-top: auto;
 }
 
 @media (max-width: 991px) {
