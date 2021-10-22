@@ -6,18 +6,18 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "<<ADD_SECRET_KEY_HERE>>"
+
+# HEROKU
+SECRET_KEY = os.environ.get("SECRET_KEY", "")
+# LOCAL
+# SECRET_KEY = os.environ.get("SECRET_KEY", "test")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]  # heroku
+# ALLOWED_HOSTS = []  # local
 
 
 # Application definition
@@ -76,6 +76,7 @@ WSGI_APPLICATION = "yoga_app.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # LOCAL
     # "default": {
     #     "ENGINE": "django.db.backends.postgresql",
     #     "NAME": "yogaapp",
@@ -84,6 +85,7 @@ DATABASES = {
     #     "HOST": "localhost",
     #     "PORT": "9001",
     # }
+    # HEROKU
     "default": dj_database_url.parse(
         "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb8124a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
     )
@@ -147,6 +149,6 @@ MESSAGE_TAGS = {messages.ERROR: "danger"}
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "primaryemail@test.com"
-EMAIL_HOST_PASSWORD = "password1"
+EMAIL_HOST_USER = os.environ.get("EMAIL_USER1", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS1", "")
 EMAIL_USE_TLS = True
