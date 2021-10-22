@@ -26,9 +26,9 @@
         <div class="row">
             {% if teachers %}
                 {% for teacher in teachers %}
-                <div class="col-sm-6 col-md-4">
-                    <div class="card mb-3">
-                        <img class="course-img" src="{{ teacher.teacher_pic.url }}" alt="">
+                <div class="col-md-12 col-md-4">
+                    <div class="card h-100 mb-3">
+                        <img class="course-img h-100" src="{{ teacher.teacher_pic.url }}" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Teacher</h5>
                             <h6 class="text-secondary">{{ teacher.name }}</h6>
