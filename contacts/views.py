@@ -56,6 +56,7 @@ def contact(request):
 
         messages.success(
             request,
-            "Your request has been submitted, a teacher will get back to you shortly.",
+            "Your request has been submitted," +
+            "a teacher will get back to you shortly.",
         )
         return redirect("/courses/" + course_id)
