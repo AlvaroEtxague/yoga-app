@@ -153,6 +153,16 @@ STRIPE_SECRET_KEY = os.getenv(
 STRIPE_WEBHOOK_SECRET = os.getenv(
     'STRIPE_WEBHOOK_SECRET', '')
 
+# Static files(CSS, JavaScript, Images)
+# https: // docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "yoga_app/static")]
+
+# Media folder settings
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
 # S3 BUCKET CONFIG
 if "USE_S3" in os.environ:
@@ -160,7 +170,7 @@ if "USE_S3" in os.environ:
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # s3 static and media settings
@@ -171,15 +181,3 @@ if "USE_S3" in os.environ:
 
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-
-else:
-    # Static files(CSS, JavaScript, Images)
-    # https: // docs.djangoproject.com/en/3.2/howto/static-files/
-
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
-    STATIC_URL = "/static/"
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, "yoga_app/static")]
-
-    # Media folder settings
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-    MEDIA_URL = "/media/"
