@@ -165,7 +165,7 @@ if "USE_S3" in os.environ:
 
     # s3 static and media settings
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
+    STATICFILES_LOCATION = 'yoga_app/static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
 
