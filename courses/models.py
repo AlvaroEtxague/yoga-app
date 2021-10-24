@@ -6,7 +6,7 @@ from teachers.models import Teacher
 
 
 class Course(models.Model):
-    teacher = models.ForeignKey(Teacher, on_delete=models.DO_NOTHING)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
     lessons = models.IntegerField()
     description = models.TextField(blank=True)
