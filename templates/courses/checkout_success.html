@@ -3,9 +3,9 @@
 {% block title %}| Checkout Success{% endblock title %}
 
 {% block content %}
-<div class="container">
+<div class="container py-3">
 	<h1 class="my-3">Thanks for your purchase.</h1>
-	<img src="{% static 'img/success.png' %}" alt="success-checkout">
+	<img src="{% static 'img/success.png' %}" alt="success-checkout" class="checkout-images py-3">
 	<h4>Access your course here:</h4>
 	<a href="{% url 'dashboard' %}"><strong>Your Dashboard</strong></a>
 </div>

@@ -3,9 +3,9 @@
 {% block title %}| Checkout Canceled{% endblock title %}
 
 {% block content %}
-<div class="container">
+<div class="container py-3">
 	<h1 class="my-3">Checkout Canceled</h1>
-	<img src="{% static 'img/cancel.png' %}" alt="cancelled-checkout">
+	<img src="{% static 'img/cancel.png' %}" alt="cancelled-checkout" class="checkout-images py-3">
 	<h4>Find more courses here:</h4>
 	<a href="{% url 'courses' %}"><strong>All Courses</strong></a>
 </div>

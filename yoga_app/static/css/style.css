@@ -19,6 +19,12 @@ img {
   min-height: 500px;
   color: #fff;
   padding-top: 6rem; }
+
+.checkout-images{
+  width: 60%;
+  height: 15vw;
+  object-fit: cover;
+}
   
 #showcase .overlay {
     content: '';
