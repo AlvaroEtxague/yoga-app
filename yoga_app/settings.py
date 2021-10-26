@@ -16,7 +16,7 @@ else:
     SECRET_KEY = os.environ.get("SECRET_KEY", "test")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if "NO_TEST" in os.environ:
     ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]  # heroku

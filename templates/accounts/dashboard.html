@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Welcome {{ user.first_name }}</h2>
+				<h2>Welcome {{ user.first_name | title }}</h2>
 				{% if object_list %}
 				<p><strong>Here are the courses that you have inquired about:</strong></p>
 				<table class="table">

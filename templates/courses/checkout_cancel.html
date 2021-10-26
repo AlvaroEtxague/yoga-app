@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}| Checkout Canceled{% endblock title %}
 
 {% block content %}
-<div class="container">
-	<h1 class="my-3">Checkout Canceled</h1>
-	<p>Find more courses here:</p>
-	<a href="{% url 'courses' %}">All Courses</a>
-</div>
+<section class="py-3 ">
+	<div class="container text-center">
+		<h1 class="my-3">Checkout Canceled</h1>
+		<img src="{% static 'img/cancel.png' %}" alt="cancelled-checkout" class="checkout-images py-3">
+		<h4>Find more courses here:</h4>
+		<a href="{% url 'courses' %}"><strong>All Courses</strong></a>
+	</div>
+</section>
+
 
 {% endblock %}
