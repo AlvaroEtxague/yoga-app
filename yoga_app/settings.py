@@ -8,16 +8,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# HEROKU
-SECRET_KEY = os.environ.get("SECRET_KEY", "")
-# LOCAL
-# SECRET_KEY = os.environ.get("SECRET_KEY", "test")
+if "NO_TEST" in os.environ:
+    # HEROKU
+    SECRET_KEY = os.environ.get("SECRET_KEY", "")
+else:
+    # LOCAL
+    SECRET_KEY = os.environ.get("SECRET_KEY", "test")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]  # heroku
-# ALLOWED_HOSTS = []  # local
+if "NO_TEST" in os.environ:
+    ALLOWED_HOSTS = ["yoga-app-django-m4.herokuapp.com"]  # heroku
+else:
+    ALLOWED_HOSTS = []  # local
 
 
 # Application definition
@@ -30,9 +34,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+
     # Third party apps
     "crispy_forms",
     "storages",
+
     # My apps
     "pages.apps.PagesConfig",
     "courses.apps.CoursesConfig",
@@ -78,21 +84,26 @@ WSGI_APPLICATION = "yoga_app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    # LOCAL
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "NAME": "yogaapp",
-    #     "USER": "postgres",
-    #     "PASSWORD": "password1",
-    #     "HOST": "localhost",
-    #     "PORT": "9001",
-    # }
-    # HEROKU
-    "default": dj_database_url.parse(
-        "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb8124a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
-    )
-}
+
+if "NO_TEST" in os.environ:
+    DATABASES = {
+        # HEROKU
+        "default": dj_database_url.parse(
+            "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb8124a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
+        )
+    }
+else:
+    DATABASES = {
+        # LOCAL
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "yogaapp",
+            "USER": "postgres",
+            "PASSWORD": "password1",
+            "HOST": "localhost",
+            "PORT": "9001",
+        }
+    }
 
 
 # Password validation
@@ -137,20 +148,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # MESSAGES
 MESSAGE_TAGS = {messages.ERROR: "danger"}
 
-# EMAIL CONFIG
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "test@gmail.com"
-EMAIL_HOST_PASSWORD = "fakepass"
-EMAIL_USE_TLS = True
-
 if 'EMAIL_DEV' in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = "smtp.gmail.com"
     EMAIL_PORT = 587
     EMAIL_HOST_USER = os.environ.get("EMAIL_USER1")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS1")
+    EMAIL_USE_TLS = True
+else:
+    # EMAIL CONFIG
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = "test@gmail.com"
+    EMAIL_HOST_PASSWORD = "fakepass"
     EMAIL_USE_TLS = True
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -179,7 +190,7 @@ if 'USE_AWS' in os.environ:
     }
 
     # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = 'yoga-app-ae-ci-m4'
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')

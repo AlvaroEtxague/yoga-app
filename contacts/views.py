@@ -35,7 +35,7 @@ def contact(request):
 
         # send email
         send_mail('Yoga Course Inquiry', 'There has been an inquiry for ' + course + '. Sign into the admin panel for more info.',
-                  'primaryemail@test.com', [teacher_email, 'secondaryemail@test.com'], fail_silently=False)
+                  'djangom4aeyogaapp@gmail.com', [teacher_email, 'secondaryemail@test.com'], fail_silently=False)
 
         messages.success(
             request, "Your request has been submitted, a teacher will get back to you shortly.")
