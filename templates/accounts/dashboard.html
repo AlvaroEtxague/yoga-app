@@ -3,7 +3,7 @@
 {% block title %}| Dashboard{% endblock title %}
 
 {% block content %}
-    <!-- Alerts -->
+    {# Alerts #}
     {% include 'components/messages.html' %}
 
     <!-- Breadcrumb -->
@@ -25,19 +25,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Welcome {{ user.first_name | title }}</h2>
-                    {% if contacts %}
-                        <h5>Here are the courses that you have inquired about:</h5>
+                    <h2>Welcome {{ user.first_name }}</h2>
+                    {% if object_list %}
+                        <p>Here are the courses that you have inquired about:</p>
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">#</th>
                                     <th scope="col">Course</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for contact in contacts %}
+                                {% for contact in object_list %}
                                     <tr>
+                                        <td>{{contact.id}}</td>
                                         <td>{{contact.course}}</td>
                                         <td>
                                             <a class="btn btn-secondary" href="{% url 'course' contact.course_id %}">View Course</a>
@@ -51,10 +53,34 @@
                     {% endif %}
 
                     <!-- Add subscribed courses here -->
-                    <h5>Here are your courses:</h5>
-                    <p>You didn't buy any courses yet.</p>
+                    {% if bought_courses %}
+                        <p>Here are the courses that you have bought:</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Course</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in bought_courses %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ course.title }}</td>
+                                       <td>
+                                            <a class="btn btn-secondary" href="{% url 'course_content' course.id %}">View Course</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>You have not bought any course yet.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </section>
+ 
 {% endblock %}

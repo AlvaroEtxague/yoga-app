@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load crispy_forms_tags %}
 {% block title %}| Login{% endblock title %}
 
 {% block content %}
@@ -13,20 +14,15 @@
                                 <i class="fas fa-sign-in-alt"></i> Login</h4>
                         </div>
                         <div class="card-body">
-                            {# Alerts #}
-                            {% include 'components/messages.html' %}
+                                {# Alerts #}
+                                {% include 'components/messages.html' %}
+                                {% if next %}
+                                <form action="{% url 'login' %}?next={{next}}" method="post" >
+                                {%else%}
                                 <form action="{% url 'login' %}" method="POST">
+                                {% endif %}
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password2">Password</label>
-                                    <input type="password" name="password" class="form-control" required>
-                                </div>
-
+                                {{ form|crispy }}
                                 <input type="submit" value="Login" class="btn btn-secondary btn-block">
                             </form>
                         </div>

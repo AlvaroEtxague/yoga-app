@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}| {{course.title}}{% endblock title %}
+
+{% block content %}
+
+    <section id="showcase-inner" class="py-3 text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1 class="display-5">{{course.title}}</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section id="bc" class="mt-3">
+        <div class="container">
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'courses' %}">Courses</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{course.title}}</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Alerts --> 
+    {% include 'components/messages.html' %}
+
+    <!-- Listing -->
+        <section id="course" class="py-2">
+            <div class="container">
+                <div class="row">
+                    {{ course.title }}
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

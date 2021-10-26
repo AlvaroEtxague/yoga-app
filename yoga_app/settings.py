@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    # Third party apps
+    "crispy_forms",
     # My apps
     "pages.apps.PagesConfig",
     "courses.apps.CoursesConfig",
@@ -125,17 +127,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "yoga_app/static")]
-
-# Media folder settings
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -149,10 +140,59 @@ MESSAGE_TAGS = {messages.ERROR: "danger"}
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get("EMAIL_USER1", "")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS1", "")
+EMAIL_HOST_USER = "djangom4aeyogaapp@gmail.com"
+EMAIL_HOST_PASSWORD = "xez7Vxk`/c@kCvg("
 EMAIL_USE_TLS = True
 
+if 'EMAIL_DEV' in os.environ:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = os.environ.get("EMAIL_USER1")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS1")
+    EMAIL_USE_TLS = True
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_URL = "/accounts/login"
+LOGIN_REDIRECT_URL = "/accounts/dashboard"
+LOGOUT_REDIRECT_URL = "/"
+
+# Static files(CSS, JavaScript, Images)
+# https: // docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "yoga_app/static")]
+
+# Media folder settings
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+# S3 BUCKET CONFIG
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'yoga-app-ae-ci-m4'
+    AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'yoga_app/static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # Stripe Credentials
 STRIPE_PUBLISHABLE_KEY = os.getenv(
@@ -162,3 +202,6 @@ STRIPE_SECRET_KEY = os.getenv(
 
 STRIPE_WEBHOOK_SECRET = os.getenv(
     'STRIPE_WEBHOOK_SECRET', '')
+
+['OBJECT_NAME', 'ReprJSONEncoder', '__class__', '__contains__', '__copy__', '__deepcopy__', '__delattr__', '__delitem__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattr__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__setattr__', '__setitem__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_last_response', '_previous',
+    '_retrieve_params', '_static_request', '_static_request_stream', '_transient_values', '_unsaved_values', 'api_base', 'api_key', 'auto_paging_iter', 'class_url', 'clear', 'construct_from', 'copy', 'create', 'fromkeys', 'get', 'instance_url', 'items', 'keys', 'last_response', 'line_items_request', 'line_items_url', 'list', 'list_line_items', 'pop', 'popitem', 'refresh', 'refresh_from', 'request', 'request_stream', 'retrieve', 'serialize', 'setdefault', 'stripe_account', 'stripe_id', 'stripe_version', 'to_dict', 'to_dict_recursive', 'update', 'values']

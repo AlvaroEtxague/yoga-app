@@ -48,21 +48,21 @@
                     {% if course.pic_1 %}
                         <div class="col-md-2">
                             <a href="{{ course.pic_1.url }}" data-lightbox="course-images">
-                                <img src="{{ course.pic_1.url }}" alt="" class="img-fluid mb-2">
+                                <img src="{{ course.pic_1.url }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     {% endif %}
                     {% if course.pic_2 %}
                         <div class="col-md-2">
                             <a href="{{ course.pic_2.url }}" data-lightbox="course-images">
-                                <img src="{{ course.pic_2.url }}" alt="" class="img-fluid mb-2">
+                                <img src="{{ course.pic_2.url }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     {% endif %}
                     {% if course.pic_3 %}
                         <div class="col-md-2">
                             <a href="{{ course.pic_3.url }}" data-lightbox="course-images">
-                                <img src="{{ course.pic_3.url }}" alt="" class="img-fluid mb-2">
+                                <img src="{{ course.pic_3.url }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     {% endif %}
@@ -91,11 +91,15 @@
                     <hr>
 
                     <!-- This should bring me to Stripe payment -->
-                    <form action="{% url 'checkout' %}" method="post">
+                    {% if user in course.students.all %}
+                   <a class="btn btn-primary btn-block" href="{% url 'course_content' course.id %}">View Course</a>
+                    {% else %}
+                      <form action="{% url 'checkout' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="course" value="{{course.id}}">
-                        <button class="btn btn-primary btn-block mb-4">Enroll Now</button>
+                        <button class="btn btn-primary btn-block">Enroll Now</button>
                     </form>
+                    {% endif %}
                 </div>
                 <div class="col-md-3">
                     <div class="card mb-3">
