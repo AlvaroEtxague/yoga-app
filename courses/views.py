@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.conf import settings
 import stripe
 
-
 from accounts.models import StripeTransaction
 from .models import Course
 
@@ -56,7 +55,7 @@ class CheckoutSession(View):
                         'description': course.description,
                         'quantity': 1,
                         'currency': 'EUR',
-                        'amount':  int(course.price * 100),
+                        'amount': int(course.price * 100),
                     }
                 ],
                 payment_method_types=[
