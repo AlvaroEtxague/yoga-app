@@ -3,44 +3,52 @@
 
 {% block content %}
 <section class="py-3">
-    <div class="container">
-        <h1>About</h1>
-        <p>We've been industry leaders in Yoga Training for over a decade and now you can learn our authentic yoga from the source in a way that suits you.</p>
-    </div>
+	<div class="container">
+		<h1>About</h1>
+		<p>We've been industry leaders in Yoga Training for over a decade and now you can learn our authentic yoga from
+			the source in a way that suits you.</p>
+	</div>
 </section>
 
 <section class="py-3">
-    <div class="container">
-        <h2>Our story</h2>
-        <p>Flow Yoga has been in the business of Yoga Training for over 12 years and in that time have trained over 2500 yoga teachers from all over the world. </p>
-        <p>We started life in India where our school Director Yogacharya Lalit has been studying yoga since the age of seven. The name Flow Yoga came from our humble beginnings in the Himalayan town of Dharamshala where we had our first ever school.</p>
-        <p>Our main Training and Retreat Centre is now based in the beautiful fishing village of Mandrem, North Goa, where we hold our world-renowned yoga teacher trainings, retreats and professional development programmes. We also recently celebrated our seventh anniversary in Cork, Ireland where we have two thriving yoga studios.</p>
-    </div>
+	<div class="container">
+		<h2>Our story</h2>
+		<p>Flow Yoga has been in the business of Yoga Training for over 12 years and in that time have trained over 2500
+			yoga teachers from all over the world. </p>
+		<p>We started life in India where our school Director Yogacharya Lalit has been studying yoga since the age of
+			seven. The name Flow Yoga came from our humble beginnings in the Himalayan town of Dharamshala where we had
+			our first ever school.</p>
+		<p>Our main Training and Retreat Centre is now based in the beautiful fishing village of Mandrem, North Goa,
+			where we hold our world-renowned yoga teacher trainings, retreats and professional development programmes.
+			We also recently celebrated our seventh anniversary in Cork, Ireland where we have two thriving yoga
+			studios.</p>
+	</div>
 </section>
 
 <section class="py-3">
-    <div class="container">
-        <h2>Our Teachers</h2>
-        <p>We have one of the largest and most experienced teaching teams in the yoga training industry. Our team live and breathe yoga and work closely with trainees, as well as experienced, yoga teachers all year round. Now you can study with our incredible team at a time, place and pace that suits you.</p>
+	<div class="container">
+		<h2>Our Teachers</h2>
+		<p>We have one of the largest and most experienced teaching teams in the yoga training industry. Our team live
+			and breathe yoga and work closely with trainees, as well as experienced, yoga teachers all year round. Now
+			you can study with our incredible team at a time, place and pace that suits you.</p>
 
-        <div class="row">
-            {% if teachers %}
-                {% for teacher in teachers %}
-                <div class="col-md-12 col-lg-4">
-                    <div class="card h-100 mb-3">
-                        <img class="course-img h-100" src="{{ teacher.teacher_pic.url }}" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Teacher</h5>
-                            <h6 class="text-secondary">{{ teacher.name }}</h6>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
+		<div class="row">
+			{% if teachers %}
+			{% for teacher in teachers %}
+			<div class="col-md-12 col-lg-4">
+				<div class="card h-100 mb-3">
+					<img class="course-img h-100" src="{{ teacher.teacher_pic.url }}" alt="">
+					<div class="card-body">
+						<h5 class="card-title">Teacher</h5>
+						<h6 class="text-secondary">{{ teacher.name }}</h6>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
 </section>
-    
 
 
 {% endblock %}

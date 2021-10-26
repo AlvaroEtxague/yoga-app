@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from courses.models import Course
 from teachers.models import Teacher
+
 
 # Create your views here.
 
