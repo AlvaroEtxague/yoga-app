@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     # Third party apps
     "crispy_forms",
+    "storages",
     # My apps
     "pages.apps.PagesConfig",
     "courses.apps.CoursesConfig",
