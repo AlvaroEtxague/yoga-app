@@ -4,8 +4,9 @@
 {% block content %}
 <div class="container">
 	<h1 class="my-3">Thanks for your purchase.</h1>
-	<p>Access your course here:</p>
-	<a href="{% url 'dashboard' %}">Your Dashboard</a>
+	<img src="{% static 'img/success.png' %}" alt="success-checkout">
+	<h4>Access your course here:</h4>
+	<a href="{% url 'dashboard' %}"><strong>Your Dashboard</strong></a>
 </div>
 
 {% endblock %}

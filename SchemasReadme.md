@@ -1,44 +1,48 @@
-Teacher
-    -id: INT
-    -name: STR
-    -teacher_photo: STR
-    -description: TEXT
-    -email: STR
-    -phone: STR
+- Teacher
+    - id: IntegerField
+    - name: CharField
+    - teacher_photo: ImageField
+    - description: TextField
+    - email: CharField
+    - phone: CharField
     
 
-Course
-    -id
-    -teacher INT (foreign key [teacher])
-    -title: STR
-    -number of lessons: INT
-    -description: TEXT
-    -price: FLOAT
-    -start_date: DATE
-    -main_pic: STR
-    -pic_1: STR
-    -pic_2: STR
-    -pic_3: STR
-    -is_published: BOOLEAN (default==TRUE)
+- Course
+    - id: IntegerField
+    - teacher: ForeignKey [teacher]
+    - title: CharField
+    - lessons: IntegerField
+    - description: TextField
+    - price: DecimalField
+    - start_date: DateField
+    - main_pic: ImageField
+    - pic_1: ImageField
+    - pic_2: ImageField
+    - pic_3: ImageField
+    - is_published: BOOLEAN (default==TRUE)
+    - students: ManyToManyField[User]
 
 
+- Contact
+    - id: IntegerField
+    - user_id: IntegerField
+    - course: CharField
+    - course_id: IntegerField
+    - name: CharField
+    - email: CharField
+    - phone: CharField
+    - message: TextField
+    - contact_date: DateTimeField
 
-Payment
-    -
-    -
-    -
-    -
-    -
-    -
 
-
-Contact
-    -id: INT
-    -user_id: INT
-    -course: INT
-    -course_id: INT
-    -name: STR
-    -email: STR
-    -phone: STR
-    -message: TEXT
-    -contact_date: DATE
+- Accounts Model:
+    - id: IntegerField
+    - user: ForeignKey [User]
+    - course: ForeignKey [Course]
+    - txn_id: CharField
+    - currency: CharField
+    - amount: IntegerField
+    - stripe_customer: CharField
+    - is_paid: BooleanField
+    - created_at: DateTimeField
+    - updated_at: DateTimeField

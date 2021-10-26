@@ -4,8 +4,9 @@
 {% block content %}
 <div class="container">
 	<h1 class="my-3">Checkout Canceled</h1>
-	<p>Find more courses here:</p>
-	<a href="{% url 'courses' %}">All Courses</a>
+	<img src="{% static 'img/cancel.png' %}" alt="cancelled-checkout">
+	<h4>Find more courses here:</h4>
+	<a href="{% url 'courses' %}"><strong>All Courses</strong></a>
 </div>
 
 {% endblock %}
