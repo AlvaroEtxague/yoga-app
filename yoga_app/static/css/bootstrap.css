@@ -3148,7 +3148,7 @@ input[type="button"].btn-block {
   object-fit: cover;
   border-top-left-radius: calc( 0.25rem - 1px);
   border-top-right-radius: calc( 0.25rem - 1px); }
-  @media (max-width: 576px) {
+  @media (min-width: 576px) {
     .card-img-top {
       width: 80%;
       height: 50vw;

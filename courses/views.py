@@ -87,7 +87,7 @@ class CheckoutSuccess(TemplateView):
 
 
 class CheckoutCancel(TemplateView):
-    template_name = "courses/checkout_success.html"
+    template_name = "courses/checkout_cancel.html"
 
 
 @csrf_exempt
