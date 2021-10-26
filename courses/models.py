@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from datetime import date
 from teachers.models import Teacher
 
+
 # Create your models here.
 
 

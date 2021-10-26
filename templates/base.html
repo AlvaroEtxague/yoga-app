@@ -2,58 +2,58 @@
 
 <!doctype html>
 <html lang="en">
-    <head>
-        {% block meta %}
-        {% endblock %}
+<head>
+	{% block meta %}
+	{% endblock %}
 
-        <!-- Required meta tags -->
-        <meta http-equiv="X-UA-Compatible" content="ie-edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Required meta tags -->
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        {% block extrameta %}
-        {% endblock %}
+	{% block extrameta %}
+	{% endblock %}
 
-        {% block corecss %}
-            <!-- Font Awesome -->
-            <link rel="stylesheet" href="{% static 'css/all.css' %}">
-            <!-- Bootstrap -->
-            <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-            <!-- Custom -->
-            <link rel="stylesheet" href="{% static 'css/style.css' %}">
-            <!-- Lightbox -->
-            <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+	{% block corecss %}
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{% static 'css/all.css' %}">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<!-- Custom -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<!-- Lightbox -->
+	<link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
 
-        {% endblock %}
+	{% endblock %}
 
-        <title>Yoga App
-        {% block title %}{% endblock title %}
-        </title>
-    </head>
+	<title>Yoga App
+		{% block title %}{% endblock title %}
+	</title>
+</head>
 
-    <body>
-    {# Header #}
-        {% block header %}
-        {% include 'components/navbar.html' %}
-        {% endblock %}
+<body>
+{# Header #}
+{% block header %}
+{% include 'components/navbar.html' %}
+{% endblock %}
 
-    {# Main content #}
-        {% block content %}
-        {% endblock %}
+{# Main content #}
+{% block content %}
+{% endblock %}
 
-    {# Footer #}
-        {% block footer %}
-        {% include 'components/footer.html' %}
-        {% endblock %}
+{# Footer #}
+{% block footer %}
+{% include 'components/footer.html' %}
+{% endblock %}
 
-    {% block corejs %}
-        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'js/lightbox.min.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
-    {% endblock %}
+{% block corejs %}
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/lightbox.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
 
-    {% block extrajs %}
-    {% endblock %}
-    </body>
+{% block extrajs %}
+{% endblock %}
+</body>
 </html>

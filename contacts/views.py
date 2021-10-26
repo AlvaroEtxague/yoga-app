@@ -26,7 +26,7 @@ def contact(request):
             if has_contacted:
                 messages.error(
                     request, "You already made an inquiry for this listing.")
-                return redirect('/courses/'+course_id)
+                return redirect('/courses/' + course_id)
 
         contact = Contact(
             course=course, course_id=course_id, name=name, email=email, phone=phone, message=message, user_id=user_id)
@@ -34,9 +34,10 @@ def contact(request):
         contact.save()
 
         # send email
-        send_mail('Yoga Course Inquiry', 'There has been an inquiry for ' + course + '. Sign into the admin panel for more info.',
+        send_mail('Yoga Course Inquiry',
+                  'There has been an inquiry for ' + course + '. Sign into the admin panel for more info.',
                   'djangom4aeyogaapp@gmail.com', [teacher_email, 'secondaryemail@test.com'], fail_silently=False)
 
         messages.success(
             request, "Your request has been submitted, a teacher will get back to you shortly.")
-        return redirect('/courses/'+course_id)
+        return redirect('/courses/' + course_id)
