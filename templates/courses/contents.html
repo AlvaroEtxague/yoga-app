@@ -35,26 +35,33 @@
     {% include 'components/messages.html' %}
 
     <!-- Listing -->
-        <section id="course" class="py-2">
+    <section id="course" class="py-2">
             <div class="container">
                 <div class="row">
                     {{ course.title }}
                 </div>
             </div>
+    </section>
 
-            <!-- Description -->
-            <div class="row mb-5">
-                <div class="col-md-12">
-                    {{ course.description }}
+    <!-- Description -->
+    <section id="course" class="py-2">
+            <div class="container">
+                <div class="row">
+                        {{ course.description }}
                 </div>
             </div>
-            <hr>
-            <!-- Content -->
-            <h3>Lesson 1</h3>
-            <p>Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch </p>
-            <hr>
-            <h3>Lesson 2</h3>
-            <p>Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch </p>
-        </section>
-    </div>
+    </section>
+    <hr>
+
+    <!-- Content -->
+    <section id="course" class="py-2">
+            <div class="container">
+                <h3>Lesson 1</h3>
+                <p>Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch </p>
+                <hr>
+                <h3>Lesson 2</h3>
+                <p>Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch Stretch </p>
+                <hr>
+            </div>
+    </section>
 {% endblock %}
