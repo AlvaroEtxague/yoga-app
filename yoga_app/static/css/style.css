@@ -20,10 +20,8 @@ img {
   color: #fff;
   padding-top: 6rem; }
 
-.checkout-images{
-  width: 60%;
-  height: 15vw;
-  object-fit: cover;
+img.checkout-images{
+  width: 50%;
 }
   
 #showcase .overlay {
