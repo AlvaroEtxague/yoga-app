@@ -91,11 +91,11 @@
                     <hr>
 
                     <!-- This should bring me to Stripe payment -->
-                    {% if user in course.students.all %}
+                {% if user in course.students.all %}
                    <a class="btn btn-primary btn-block" href="{% url 'course_content' course.id %}">View Course</a>
-                    {% else %}
+                {% else %}
                       <form action="{% url 'checkout' %}" method="post">
-                        {% csrf_token %}
+                {% csrf_token %}
                         <input type="hidden" name="course" value="{{course.id}}">
                         <button class="btn btn-primary btn-block">Enroll Now</button>
                     </form>
