@@ -1,5 +1,8 @@
 # Flow Yoga - M4
-- The website is live and can be access in the following url: https://yoga-app-django-m4.herokuapp.com/
+- The website is live and can be accessed in the following url: https://yoga-app-django-m4.herokuapp.com/
+
+<img src="https://yoga-app-ae-ci-m4.s3.eu-west-1.amazonaws.com/wireframes/001_home.JPG" style="width:600px;"/>
+
 
 ## Project Goals:
 - This is an app where users can buy and access the content for different yoga courses.
@@ -397,6 +400,8 @@ web: gunicorn your_app_name.wsgi:application
 - There are 2 youtube videos with yoga exercises which were picked at random:
     - https://www.youtube.com/watch?v=7OJY0iQwzoo
     - https://www.youtube.com/watch?v=yetbSrCW1TQ
+- Text content was taken from several yoga websites such as: www.gaia.com, yoga.ie and others.
+- All teachers and yoga courses are fake.
 
 ### Resources:
 - udemy.com:
