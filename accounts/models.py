@@ -6,7 +6,8 @@ class StripeTransaction(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_transactions")
     course = models.ForeignKey(
-        'courses.Course', on_delete=models.CASCADE, related_name="course_transactions")
+        'courses.Course', on_delete=models.CASCADE,
+        related_name="course_transactions")
     txn_id = models.CharField(max_length=255)
     currency = models.CharField(max_length=10, blank=True, null=True)
     amount = models.IntegerField(default=0)

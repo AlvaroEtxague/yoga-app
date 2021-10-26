@@ -87,7 +87,9 @@ if "NO_TEST" in os.environ:
     DATABASES = {
         # HEROKU
         "default": dj_database_url.parse(
-            "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb8124a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
+            "postgres://cvjbpbpbddjdru:9ed25d74ecebbc2df2e5915daeb812"
+            + "4a8ae8327f7ffb2cbc3e695c10aadb661b@ec2-52-209-134-160."
+            + "eu-west-1.compute.amazonaws.com:5432/dfoaf5fg4no4mg"
         )
     }
 else:
@@ -108,16 +110,21 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME":
+            "django.contrib.auth.password_validation."
+            + "UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME":
+            "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -208,14 +215,19 @@ STRIPE_SECRET_KEY = os.getenv(
 STRIPE_WEBHOOK_SECRET = os.getenv(
     'STRIPE_WEBHOOK_SECRET', '')
 
-['OBJECT_NAME', 'ReprJSONEncoder', '__class__', '__contains__', '__copy__', '__deepcopy__', '__delattr__',
- '__delitem__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattr__', '__getattribute__',
- '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__',
- '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__setattr__',
- '__setitem__', '__setstate__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_last_response',
- '_previous',
- '_retrieve_params', '_static_request', '_static_request_stream', '_transient_values', '_unsaved_values', 'api_base',
- 'api_key', 'auto_paging_iter', 'class_url', 'clear', 'construct_from', 'copy', 'create', 'fromkeys', 'get',
- 'instance_url', 'items', 'keys', 'last_response', 'line_items_request', 'line_items_url', 'list', 'list_line_items',
- 'pop', 'popitem', 'refresh', 'refresh_from', 'request', 'request_stream', 'retrieve', 'serialize', 'setdefault',
- 'stripe_account', 'stripe_id', 'stripe_version', 'to_dict', 'to_dict_recursive', 'update', 'values']
+['OBJECT_NAME', 'ReprJSONEncoder', '__class__', '__contains__', '__copy__',
+ '__deepcopy__', '__delattr__', '__delitem__', '__dict__', '__dir__',
+ '__doc__', '__eq__', '__format__', '__ge__', '__getattr__',
+ '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__',
+ '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__',
+ '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+ '__reversed__', '__setattr__', '__setitem__', '__setstate__', '__sizeof__',
+ '__str__', '__subclasshook__', '__weakref__', '_last_response', '_previous',
+ '_retrieve_params', '_static_request', '_static_request_stream',
+ '_transient_values', '_unsaved_values', 'api_base', 'api_key',
+ 'auto_paging_iter', 'class_url', 'clear', 'construct_from', 'copy', 'create',
+ 'fromkeys', 'get', 'instance_url', 'items', 'keys', 'last_response',
+ 'line_items_request', 'line_items_url', 'list', 'list_line_items', 'pop',
+ 'popitem', 'refresh', 'refresh_from', 'request', 'request_stream', 'retrieve',
+ 'serialize', 'setdefault', 'stripe_account', 'stripe_id', 'stripe_version',
+ 'to_dict', 'to_dict_recursive', 'update', 'values']

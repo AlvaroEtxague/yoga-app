@@ -22,7 +22,8 @@ class DashBoardView(LoginRequiredMixin, ListView):
     template_name = "accounts/dashboard.html"
 
     def get_queryset(self):
-        queryset = Contact.objects.filter(user_id=self.request.user.id).order_by(
+        queryset = Contact.objects.filter(
+            user_id=self.request.user.id).order_by(
             '-contact_date')
         return queryset
 
