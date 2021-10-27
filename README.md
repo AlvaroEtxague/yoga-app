@@ -227,7 +227,9 @@
     - https://canva.com was used to create the logo
 - AWS S3
     - AWS S3 was used to store static files for the heroku deployment.
-
+- Lightbox
+    - Lightbox is used in the individual course pages for the thumbnail images.
+    
 ## TESTING
 ---
 - The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
